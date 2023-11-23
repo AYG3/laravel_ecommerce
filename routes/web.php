@@ -33,6 +33,8 @@ Route::get('/search', [HomeController::class, 'search']);
 
 Route::post('/addcart/{id}', [HomeController::class, 'addcart']);
 
+Route::get('/cart/{id}', [HomeController::class, 'cart']);
+
 Route::get('/product', [AdminController::class, 'product']);
 
 Route::post('/uploadproduct', [AdminController::class, 'uploadproduct']);

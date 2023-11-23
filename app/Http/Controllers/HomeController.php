@@ -80,8 +80,12 @@ class HomeController extends Controller
         {
             return redirect('login');
         }
+    }
 
-        
+    public function cart($id)
+    {
+        $cart = cart::find($id);
+        return view('user.cart', compact('data'));
     }
    
 }

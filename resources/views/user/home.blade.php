@@ -63,7 +63,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="index.html">Home
                   <span class="sr-only">(current)</span>
                 </a>
-              </li> 
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="products.html">Our Products</a>
               </li>
@@ -73,6 +73,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
+              
               {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                 <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
@@ -80,8 +81,11 @@ https://templatemo.com/tm-546-sixteen-clothing
             </div> --}}
 
             
-            @if(Route::has('login'))
+                @if(Route::has('login'))
                 @auth
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Cart</a>
+                </li>
                       <x-app-layout>
 
                       </x-app-layout>
