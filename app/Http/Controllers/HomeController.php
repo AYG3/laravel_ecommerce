@@ -20,7 +20,9 @@ class HomeController extends Controller
         }else
         {
             $data = product::paginate(3);
-            return view('user.home', compact('data'));
+            $user = auth()->user();
+            $count = cart::where('phone', $user->phone)->count();
+            return view('user.home', compact('data', 'count'));
         }
 
     }
@@ -82,10 +84,10 @@ class HomeController extends Controller
         }
     }
 
-    public function cart($id)
+    public function showcart($phone)
     {
-        $cart = cart::find($id);
-        return view('user.cart', compact('data'));
+        $cart = cart::find($phone);
+        return view('user.cart', compact('cart'));
     }
    
 }

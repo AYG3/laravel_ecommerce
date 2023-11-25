@@ -11,6 +11,8 @@
 
     <title>Sixteen Clothing HTML Template</title>
 
+    {{-- Add Bootstrap CSS  --}}
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!--
@@ -84,7 +86,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 @if(Route::has('login'))
                 @auth
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Cart</a>
+                  <a class="nav-link" href={{url('showcart')}}><i class="fas fa-shopping-cart"></i>Cart[{{$count}}]</a>
                 </li>
                       <x-app-layout>
 
