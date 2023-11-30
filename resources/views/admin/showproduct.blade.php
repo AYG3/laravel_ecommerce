@@ -15,14 +15,17 @@
     
         @include('admin.navbar')
 
-        @if(session()->has('message'))
-        {
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert">X</button>
-                {{session()->get('message')}}    
-            </div>
-        }
-        @endif
+        <div class="margin-top:300px;">
+            @if(session()->has('message'))
+            {
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">X</button>
+                    {{session()->get('message')}}    
+                </div>
+            }
+            @endif
+        </div>
+
 
 
         <!-- partial -->

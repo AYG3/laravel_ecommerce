@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -65,7 +67,7 @@ class HomeController extends Controller
             $user = auth()->user();
             $cart = new cart;
 
-            $product=product::find($id);
+            $product=product::find($id);     
 
             // $cart->id = $id;
             $cart->name = $user->name;
@@ -84,10 +86,51 @@ class HomeController extends Controller
         }
     }
 
-    public function showcart($phone)
+    public function showcart()
     {
-        $cart = cart::find($phone);
-        return view('user.cart', compact('cart'));
+        $user = auth()->user();
+        $cart = cart::where('phone' ,$user->phone)->get();
+        $count = cart::where('phone', $user->phone)->count();
+        return view('user.showcart', compact('count', 'cart'));
     }
    
+    public function deletecart($id)
+    {
+        $cart = cart::find($id);
+        $cart->delete();
+
+        return redirect()->back()->with('message', 'Product deleted successfully');
+    }
+
+    public function confirmorder(Request $request)
+    {
+        $user = auth()->user();
+
+        $name = $user->name;
+        $phone = $user->phone;
+        $address = $user->address;
+
+
+        foreach($request->productname as $key=>$productname)
+        {
+            $order = new order;
+            
+            $order->product_name = $request->productname[$key];
+            $order->price = $request->price[$key];
+            $order->quantity = $request->quantity[$key];
+
+            #Because these values are static (Same every time)
+            $order->name = $name;
+            $order->phone = $phone;
+            $order->address = $address;
+            
+            $order->status = "Not Delivered";
+
+            $order->save();
+        }
+
+        DB::table('carts')->where('phone', $phone)->delete();
+
+        return redirect()->back()->with('message', 'Order Completed Successfully');
+    }
 }

@@ -82,4 +82,9 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message', 'Update Sucessfully');
     }
+
+    public function order()
+    {
+        
+    }
 }

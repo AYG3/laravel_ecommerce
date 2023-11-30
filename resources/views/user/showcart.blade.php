@@ -62,7 +62,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" href={{url('/')}}>Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
@@ -105,100 +105,74 @@ https://templatemo.com/tm-546-sixteen-clothing
       </nav>
     </header>
 
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="banner header-text">
-      <div class="owl-banner owl-carousel">
-        <div class="banner-item-01">
-          <div class="text-content">
-            <h4>Best Offer</h4>
-            <h2>New Arrivals On Sale</h2>
-          </div>
-        </div>
-        <div class="banner-item-02">
-          <div class="text-content">
-            <h4>Flash Deals</h4>
-            <h2>Get your best products</h2>
-          </div>
-        </div>
-        <div class="banner-item-03">
-          <div class="text-content">
-            <h4>Last Minute</h4>
-            <h2>Grab last minute deals</h2>
-          </div>
-        </div>
+
+
+    @if(session()->has('messsage'))
+    {
+      <div class="allert alert-success">
+        <button type="button" class="close" daata-dsimiss='alert'>X</button>
+        {{session()->get('message')}}
       </div>
-    </div>
-    <!-- Banner Ends Here -->
+    }
+    @endif
 
-    @include('user.product')
-
-    <div class="best-features">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <h2>About Sixteen Clothing</h2>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="left-content">
-              <h4>Looking for the best products?</h4>
-              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p>
-              <ul class="featured-list">
-                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li><a href="#">Consectetur an adipisicing elit</a></li>
-                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
-                <li><a href="#">Corporis, omnis doloremque</a></li>
-                <li><a href="#">Non cum id reprehenderit</a></li>
-              </ul>
-              <a href="about.html" class="filled-button">Read More</a>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="right-image">
-              <img src="assets/images/feature-image.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div style='padding:100px;' align='center'>
 
 
-    <div class="call-to-action">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <div class="row">
-                <div class="col-md-8">
-                  <h4>Creative &amp; Unique <em>Sixteen</em> Products</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
-                </div>
-                <div class="col-md-4">
-                  <a href="#" class="filled-button">Purchase Now</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <table>
+        <tr style="background-color:gray  ">
+          <td style="padding:10px; font-size:20px;">Product name</td>
+          <td style="padding:10px; font-size:20px;">Quantity</td>
+          <td style="padding:10px; font-size:20px;">Price</td>
+          <td style="padding:10px; font-size:20px; color: red;">Delete</td>
+        </tr>
 
-    
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+        <form action="{{url('order')}}" method="POST">
+          @csrf
+
+          @foreach($cart as $carts)
+          <tr style="background-color: black;">
+
+            <td style="padding:10px; font-size:20px; color:white;">
             
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+                <input type="text", name="productname[]" value="{{$carts->product_title}}" hidden>
+              {{$carts->product_title}}
+            
+            </td>
+
+            <td style="padding:10px; font-size:20px; color:white;">
+            
+                <input type="text" name="quantity[]" value="{{$carts->quantity}}" hidden>
+
+              {{$carts->quantity}}
+
+            </td>
+
+
+            <td style="padding:10px; font-size:20px; color:white;">
+              
+              <input type="text" name="price[]" value="{{$carts->price}}" hidden>
+              
+              {{$carts->price}}
+            </td>
+
+            <td ><a href={{url('deletecart', $carts->id)}} class="btn btn-danger">Delete</a></td>
+          </tr>
+
+          
+          @endforeach
+        
+        
+          
+        </table>
+      
+      <button class="btn btn-success"> <a href="">Confirm Order</a></button>
+      </form>  
+
+
+    </div>
+
+
 
 
     <!-- Bootstrap core JavaScript -->

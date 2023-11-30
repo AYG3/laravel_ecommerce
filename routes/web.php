@@ -33,7 +33,11 @@ Route::get('/search', [HomeController::class, 'search']);
 
 Route::post('/addcart/{id}', [HomeController::class, 'addcart']);
 
-Route::get('/showcart/{phone}', [HomeController::class, 'showcart']);
+Route::get('/showcart', [HomeController::class, 'showcart']);
+
+Route::get('/deletecart/{id}', [HomeController::class, 'deletecart']);
+
+Route::post('/order', [HomeController::class, 'confirmorder']);
 
 Route::get('/product', [AdminController::class, 'product']);
 
