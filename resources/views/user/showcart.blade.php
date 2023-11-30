@@ -28,11 +28,11 @@ https://templatemo.com/tm-546-sixteen-clothing
     <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
     <link rel="stylesheet" href="assets/css/owl.css">
 
-  @if(session()->has('messag'))
+  @if(session()->has('message'))
 
     <div class="alert alert-success">
       <button type='button' class="close" data-dismaiss="alert">X</button>
-      {{session()->get('messag')}}
+      {{session()->get('message')}}
     </div>
 
   @endif
