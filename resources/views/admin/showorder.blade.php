@@ -19,8 +19,10 @@
 
             <table>
                 <tr style="background-color:gray  ">
+                  <td style="padding:10px; font-size:20px;">Name</td>
+                  <td style="padding:10px; font-size:20px;">Phone</td>
+                  <td style="padding:10px; font-size:20px;">address</td>
                   <td style="padding:10px; font-size:20px;">Product name</td>
-                  <td style="padding:10px; font-size:20px;">Quantity</td>
                   <td style="padding:10px; font-size:20px;">Price</td>
                   <td style="padding:10px; font-size:20px;">Status</td>
                 </tr>
@@ -30,21 +32,19 @@
         
                   @foreach($data as $order)
                   <tr style="background-color: black; color:white;">        
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->name}}</td>        
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->phone}}</td>        
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->address}}</td>        
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->product_name}}</td>        
-                    <td style="padding:10px; font-size:20px; color:white;">{{$order->quantity}}</td>
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->price}}</td>
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->status}}</td>
                   </tr>
-
-                  
                   @endforeach
                 
-                
-                  
-                </table>
+                  {{-- <button class="btn btn-success"> <a href="">Confirm Order</a></button> --}}
+                </form> 
+            </table>
               
-              <button class="btn btn-success"> <a href="">Confirm Order</a></button>
-              </form>  
 
         </div>
 
