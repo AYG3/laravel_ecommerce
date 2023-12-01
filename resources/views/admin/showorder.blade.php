@@ -31,26 +31,15 @@
                   @foreach($data as $order)
                   <tr style="background-color: black; color:white;">
         
-                    <td style="padding:10px; font-size:20px; color:white;">
-                    
-                        <input type="text", name="productname[]" value="{{$order->product_title}}" hidden>
-                      {{$order->product_title}}
-                    
+                    <td style="padding:10px; font-size:20px; color:white;">                    
+                      {{$order->product_title}}                  
                     </td>
         
-                    <td style="padding:10px; font-size:20px; color:white;">
-                    
-                        <input type="text" name="quantity[]" value="{{$order->quantity}}" hidden>
-        
+                    <td style="padding:10px; font-size:20px; color:white;">                    
                       {{$order->quantity}}
-        
                     </td>
-        
-        
-                    <td style="padding:10px; font-size:20px; color:white;">
-                      
-                      <input type="text" name="price[]" value="{{$order->price}}" hidden>
-                      
+
+                    <td style="padding:10px; font-size:20px; color:white;">                                            
                       {{$order->price}}
                     </td>
         
