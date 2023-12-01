@@ -46,7 +46,7 @@
                                 <th scope='col'>Delete</th>
                             </tr>
                         </thead>
-                        
+
                         @foreach($data as $product)
                         <tbody>
                             <tr>
@@ -58,7 +58,7 @@
                                     <img src="productimage/{{$product->image}}" >
                                 </td>
                                 <td  ><a href={{url('updateview', $product->id)}} class="btn btn-primary">Update</a></td>
-                                <td ><a href={{url('deleteproduct', $product->id)}} class="btn btn-danger">Delete</a></td>
+                                <td ><a onclick="return confirm('Are  You Sure')" href={{url('deleteproduct', $product->id)}} class="btn btn-danger">Delete</a></td>
                             </tr>
                         </tbody>
                         @endforeach
