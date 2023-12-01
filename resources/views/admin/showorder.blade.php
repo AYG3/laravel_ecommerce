@@ -45,7 +45,7 @@
         
                     <td ><a href={{url('deletecart', $order->id)}} class="btn btn-danger">Delete</a></td>
                   </tr>
-        
+
                   
                   @endforeach
                 
