@@ -51,4 +51,4 @@ Route::get('/updateview/{id}', [AdminController::class, 'updateview']);
 
 Route::post('/updateproduct/{id}', [AdminController::class, 'updateproduct']);
 
-Route::get('/showorder', [AdminContoller::class, 'showorder']);
+Route::get('/showorder', [AdminController::class, 'showorder']);

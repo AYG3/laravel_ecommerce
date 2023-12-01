@@ -46,11 +46,12 @@
                                 <th scope='col'>Delete</th>
                             </tr>
                         </thead>
+                        
                         @foreach($data as $product)
                         <tbody>
                             <tr>
-                                <td>{{$product->title}}</td>
-                                <td>{{$product->price}}</td>
+                                <td> {{$product->title}} </td>
+                                <td> {{$product->price}} </td>
                                 <td> {{$product->description}} </td>
                                 <td> {{$product->quantity}} </td>
                                 <td>

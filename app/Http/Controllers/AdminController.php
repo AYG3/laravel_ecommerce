@@ -88,6 +88,10 @@ class AdminController extends Controller
     {
         $order = new order;
 
-        $name = $order->name;
+        // $user = auth()->user();
+
+        $data = order::all();
+
+        return view('admin.showorder', compact('data'));
     }
 }
