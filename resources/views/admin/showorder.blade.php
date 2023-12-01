@@ -22,28 +22,18 @@
                   <td style="padding:10px; font-size:20px;">Product name</td>
                   <td style="padding:10px; font-size:20px;">Quantity</td>
                   <td style="padding:10px; font-size:20px;">Price</td>
-                  <td style="padding:10px; font-size:20px; color: red;">Delete</td>
+                  <td style="padding:10px; font-size:20px;">Status</td>
                 </tr>
         
                 <form action="{{url('order')}}" method="POST">
                   @csrf
         
                   @foreach($data as $order)
-                  <tr style="background-color: black; color:white;">
-        
-                    <td style="padding:10px; font-size:20px; color:white;">
-                      {{$order->product_name}}
-                    </td>
-        
-                    <td style="padding:10px; font-size:20px; color:white;">
-                      {{$order->quantity}}
-                    </td>
-
-                    <td style="padding:10px; font-size:20px; color:white;">
-                      {{$order->price}}
-                    </td>
-        
-                    <td ><a href={{url('deletecart', $order->id)}} class="btn btn-danger">Delete</a></td>
+                  <tr style="background-color: black; color:white;">        
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->product_name}}</td>        
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->quantity}}</td>
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->price}}</td>
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->status}}</td>
                   </tr>
 
                   
