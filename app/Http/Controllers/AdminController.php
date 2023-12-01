@@ -97,13 +97,15 @@ class AdminController extends Controller
         return view('admin.showorder', compact('data'));
     }
 
-    public function updatestatus(Request $request, $id)
+    public function updatestatus($id)
     {
-        $order = new order;
+        $order = order::find($id);
 
-        $order->statusupdate('status');
+        $order->status='Delivered';
         
-        // ('orders')->where('update');
+        $order->save();
+
+        return redirect()->back();
     }
 
 

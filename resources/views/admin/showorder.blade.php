@@ -41,7 +41,7 @@
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->Quantity}}</td>        
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->Price}}</td>
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->status}}</td>
-                    <td> <a class="btn btn-success" href="">Delivered</a></td>
+                    <td> <a class="btn btn-success" href="{{url('updatestatus', $order->id)}}">Delivered</a></td>
                   </tr>
                   @endforeach
                 
