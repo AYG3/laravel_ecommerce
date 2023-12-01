@@ -31,15 +31,15 @@
                   @foreach($data as $order)
                   <tr style="background-color: black; color:white;">
         
-                    <td style="padding:10px; font-size:20px; color:white;">                    
-                      {{$order->product_title}}                  
+                    <td style="padding:10px; font-size:20px; color:white;">
+                      {{$order->product_name}}
                     </td>
         
-                    <td style="padding:10px; font-size:20px; color:white;">                    
+                    <td style="padding:10px; font-size:20px; color:white;">
                       {{$order->quantity}}
                     </td>
 
-                    <td style="padding:10px; font-size:20px; color:white;">                                            
+                    <td style="padding:10px; font-size:20px; color:white;">
                       {{$order->price}}
                     </td>
         
