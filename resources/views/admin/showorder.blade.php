@@ -23,6 +23,7 @@
                   <td style="padding:10px; font-size:20px;">Phone</td>
                   <td style="padding:10px; font-size:20px;">address</td>
                   <td style="padding:10px; font-size:20px;">Product name</td>
+                  <td style="padding:10px; font-size:20px;">Quantity</td>
                   <td style="padding:10px; font-size:20px;">Price</td>
                   <td style="padding:10px; font-size:20px;">Status</td>
                 </tr>
@@ -36,6 +37,7 @@
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->phone}}</td>        
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->address}}</td>        
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->product_name}}</td>        
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->quantity}}</td>        
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->price}}</td>
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->status}}</td>
                   </tr>
