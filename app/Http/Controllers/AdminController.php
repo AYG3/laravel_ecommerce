@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
 
 class AdminController extends Controller
 {
@@ -83,8 +84,10 @@ class AdminController extends Controller
         return redirect()->back()->with('message', 'Update Sucessfully');
     }
 
-    public function order()
+    public function showorder()
     {
-        
+        $order = new order;
+
+        $name = $order->name;
     }
 }
