@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\DB;
 use App\Models\Product;
 use App\Models\Order;
 
@@ -91,7 +92,20 @@ class AdminController extends Controller
         // $user = auth()->user();
 
         $data = order::all();
+        // $data->status = 'Delivered';
 
         return view('admin.showorder', compact('data'));
     }
+
+    public function updatestatus(Request $request, $id)
+    {
+        $order = new order;
+
+        $order->statusupdate('status');
+        
+        // ('orders')->where('update');
+    }
+
+
+
 }

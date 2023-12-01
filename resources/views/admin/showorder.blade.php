@@ -26,6 +26,7 @@
                   <td style="padding:10px; font-size:20px;">Quantity</td>
                   <td style="padding:10px; font-size:20px;">Price</td>
                   <td style="padding:10px; font-size:20px;">Status</td>
+                  <td style="padding:10px; font-size:20px;">Action</td>
                 </tr>
         
                 <form action="{{url('order')}}" method="POST">
@@ -37,13 +38,13 @@
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->phone}}</td>        
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->address}}</td>        
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->product_name}}</td>        
-                    <td style="padding:10px; font-size:20px; color:white;">{{$order->quantity}}</td>        
-                    <td style="padding:10px; font-size:20px; color:white;">{{$order->price}}</td>
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->Quantity}}</td>        
+                    <td style="padding:10px; font-size:20px; color:white;">{{$order->Price}}</td>
                     <td style="padding:10px; font-size:20px; color:white;">{{$order->status}}</td>
+                    <td> <a class="btn btn-success" href="">Delivered</a></td>
                   </tr>
                   @endforeach
                 
-                  {{-- <button class="btn btn-success"> <a href="">Confirm Order</a></button> --}}
                 </form> 
             </table>
               
