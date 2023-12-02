@@ -15,7 +15,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+route::get('/', [HomeController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',
