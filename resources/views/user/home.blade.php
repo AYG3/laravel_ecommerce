@@ -82,16 +82,16 @@ https://templatemo.com/tm-546-sixteen-clothing
                 </x-nav-link>
             </div> --}}
 
-            
+
                 @if(Route::has('login'))
                 @auth
-                <li class="nav-item">
-                  <a class="nav-link" href={{url('showcart')}}><i class="fas fa-shopping-cart"></i>Cart[{{$count}}]</a>
-                </li>
-                      <x-app-layout>
+                  <li class="nav-item">
+                    <a class="nav-link" href={{url('showcart')}}><i class="fas fa-shopping-cart"></i>Cart[{{$count}}]</a>
+                  </li>
+                  <x-app-layout>
 
-                      </x-app-layout>
-                @else                    
+                  </x-app-layout>
+                @else       
                     <li><a href="{{ route('login') }}" class="nav-link">Log in</a></li>
                   
                     @if(Route::has('register'))
